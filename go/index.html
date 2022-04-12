@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+	<title>成熟男孩的爱意</title>
+    <meta charset="UTF-8">
+
+    <style>
+        .extendor {
+            padding: 10px;
+            display: inline-block;
+            position: relative;
+            border-width: 2px;
+            margin: 6px;
+            min-width: 100px;
+            min-height: 44px;
+        }
+        .extendor, .extendor::before, .extendor::after {
+            transition: transform 100ms ease-in-out;
+        }
+        .extendor::before, .extendor::after {
+            content: '';
+            position: absolute;
+            border: 0 solid transparent;
+            z-index: -1;
+            transition-property: border-width, top, left, bottom, right;
+        }
+        .extendor::before {
+            top: -2px;
+            right: calc(100% + 2px);
+            bottom: -2px;
+            border-right-color: inherit;
+        }
+        .extendor::after {
+            top: calc(100% + 2px);
+            left: -2px;
+            right: -2px;
+            border-top-color: inherit;
+        }
+        .extendor:hover::before, .extendor:focus::before {
+            border-top-width: 6px;
+            border-right-width: 6px;
+            bottom: -8px;
+        }
+        .extendor:hover::after, .extendor:focus::after {
+            border-top-width: 6px;
+            border-right-width: 6px;
+            left: -8px;
+        }
+        .extendor:active {
+            transform: translateX(-2px) translateY(2px);
+        }
+        .extendor:active, .extendor:active::before, .extendor:active::after {
+            transition-duration: 50ms;
+        }
+        .extendor:active::before {
+            border-top-width: 4px;
+            border-right-width: 4px;
+            bottom: -6px;
+        }
+        .extendor:active::after {
+            border-top-width: 4px;
+            border-right-width: 4px;
+            left: -6px;
+        }
+
+        button {
+            appearance: none;
+            cursor: pointer;
+            color: inherit;
+            font-size: inherit;
+            margin: 1em 0;
+            background: none;
+            border-color: inherit;
+            border-style: solid;
+        }
+
+        body {
+            background-color: white;
+            color: black;
+            font-family: Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+        }
+        body.invert {
+            background-color: black;
+            color: white;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        [hidden] {
+            display: initial;
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+<body translate="no">
+    <button class="extendor" onclick="invert()">连续点我有惊喜</button>
+
+    <footer hidden>
+
+        <p>
+            5G正在向你发起yp请求，今晚3点请务必来302！
+         <br>
+            嘿，宝贝，我能逮捕你吗？罪名是，偷心盗贼！mua~~~ - 5G
+         </br>
+          </p>
+    </footer>
+
+    <script>
+        var count = 0;
+        function invert() {
+            document.body.classList.toggle('invert');
+            count++;
+            if (count > 3) {
+                document.querySelectorAll('[hidden]').forEach(el => el.hidden = false);
+            }
+        }
+        //# sourceURL=pen.js
+    </script>
+</body>
+</html>
